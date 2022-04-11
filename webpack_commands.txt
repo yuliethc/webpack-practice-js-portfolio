@@ -1,0 +1,12 @@
+cd YuliethFiles/Documents/Repos/
+mkdir
+mkdir webpack-practice
+cd webpack-practice
+git init
+npm -y
+npm init -y
+code .
+npm install webpack-cli -D
+npm webpack
+npx webpack --mode development
+npx webpack --mode production
