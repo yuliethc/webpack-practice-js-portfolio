@@ -10,3 +10,50 @@ npm install webpack-cli -D
 npm webpack
 npx webpack --mode development
 npx webpack --mode production
+
+-Create webpack.config.js file 
+
+const path = require('path');
+
+module.exports = {
+    entry: './src/index.js',
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename:'main.js'
+    },
+    resolve:{
+        extensions: ['.js']
+    }
+}
+
+-and run:
+
+npx webpack --mode production --config webpack.config.js
+
+-Add build in scripts:
+"scripts": {
+    
+    "build": "webpack --mode production"
+
+
+-Finally: 
+
+npm run build
+
+-NOW BABEL:
+
+ npm install babel-loader @babel/core @babel/preset-env @babel/plugin-transform-runtime -D
+
+ - Create file named: .babelrc
+
+ {
+    "presets":[
+        "@babel/preset-env"
+    ],
+    "plugins": [
+        "@babel/plugin-transform-runtime"
+    ]
+}
+
+
+
