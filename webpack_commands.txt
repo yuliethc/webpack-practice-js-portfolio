@@ -160,5 +160,28 @@ new CopyPlugin({
 - ahora así:
             <img src="assets/images/twitter.png" />
 
+- loaders de imagenes
 
+- añadir configuración necesaria para poder trabajar con imagenes
+
+- añadir nueva regla dentro de module:
+
+            {   
+                test: /\.png/,
+                type: 'asset/resource'
+            }
+
+- ir al archivo js donde estan las imagenes
+-añadir los import:
+import github from '.../assets/images/github.png'
+import twitter from '.../assets/images/twitter.png'
+import instagram from '.../assets/images/instagram.png'
+
+- añadir las variables a html:
+ <a href="https://instagram.com/gndx">
+            <img src="${instagram}" />
+          </a>
+
+
+- correr npm run dev
 
