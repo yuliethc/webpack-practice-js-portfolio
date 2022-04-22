@@ -95,3 +95,70 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 - new plugin
 
 new MiniCssExtractPlugin(),
+
+
+- new preprocesador css 
+
+npm install stylus stylus-loader -D
+
+- modificar confing 
+
+            {
+                test: /\.css$|styl/i,
+                use:[
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'stylus-loader'
+                ],
+            }
+
+
+- crear archivo stylus: var.styl
+
+$color-black = red
+
+body
+    color $color-black
+
+-add in index.js
+
+import './styles/var.styl'
+
+-correr npm run dev
+
+- archivos , optimizacion a webpack
+-instalar plugin:
+
+npm install copy-webpack-plugin -D
+
+- identificar los archivos que vamos a moder de nuestro source a la carpeta de dist (distribution)
+
+- cambiar leer las imagenes desde el source como normalmente se hace
+
+- modificar archivo de configuration
+
+- parte superior archivo: 
+
+const CopyPlugin = require('copy-webpack-plugin');
+
+- parte inferior en los plugins:
+
+new CopyPlugin({
+            patterns:[
+                {
+                    from: path.resolve(__dirname, "src", "assets/images"),
+                    to: "assets/images"
+                }
+            ]
+        })
+
+- cambiar la manera de llamar a los archivos de imagen en las etiquetas imagenes existentes.
+
+- en vez de así:
+            <img src="../src/assets/images/twitter.png" />
+
+- ahora así:
+            <img src="assets/images/twitter.png" />
+
+
+
